@@ -26,25 +26,29 @@
 
   // scroll progress bar
   const scrollProgress = document.getElementById('scrollProgress');
-  window.addEventListener('scroll', ()=>{
-    const h = document.documentElement;
-    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    scrollProgress.style.width = scrolled + '%';
-  });
+  if(scrollProgress){
+    window.addEventListener('scroll', ()=>{
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    });
+  }
 
   // mobile menu toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileToggle.addEventListener('click', ()=>{
-    mobileToggle.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      mobileToggle.classList.remove('open');
-      mobileMenu.classList.remove('open');
+  if(mobileToggle && mobileMenu){
+    mobileToggle.addEventListener('click', ()=>{
+      mobileToggle.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
     });
-  });
+    mobileMenu.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        mobileToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
 
   // reveal-on-scroll
   const revealEls = document.querySelectorAll('.reveal');
@@ -59,9 +63,12 @@
   revealEls.forEach(el=>revealObs.observe(el));
 
   // nav scroll state
-  window.addEventListener('scroll', ()=>{
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-  });
+  const navEl = document.getElementById('nav');
+  if(navEl){
+    window.addEventListener('scroll', ()=>{
+      navEl.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  }
 
   // animated network background (video-style plexus effect)
   const canvas = document.getElementById('particles');

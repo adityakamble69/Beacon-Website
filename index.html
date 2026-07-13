@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Beacon indexes your repo, docs, and API reference, then answers developer questions inside your product — accurate, cited, and always in sync with your code.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Beacon — An AI assistant that knows your codebase">
+  <meta property="og:description" content="Beacon indexes your repo, docs, and API reference, then answers developer questions inside your product — accurate, cited, and always in sync with your code.">
+  <meta name="twitter:card" content="summary">
   <title>Beacon — An AI assistant that knows your codebase</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,6 +264,83 @@
     </div>
   </section>
 
+  <!-- COMPARISON -->
+  <section class="comparison reveal" id="comparison">
+    <div class="section-head">
+      <div class="eyebrow">// BEACON VS. TRADITIONAL DOCS SEARCH</div>
+      <h2>Search finds a page.<br>Beacon gives you the answer.</h2>
+      <p>Keyword search on a docs site hands a developer a list of pages to read. Beacon reads the code and docs
+        for them, then answers with a citation they can verify in seconds.</p>
+    </div>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-beacon">Beacon</th>
+            <th>Traditional docs search</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Answer format</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Direct, written answer</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>List of pages to open and read</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Source verification</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Cited to the exact file &amp; line</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>You re-read the page to confirm</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Stays current</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Re-indexes automatically on every push</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>Only as fresh as the last docs update</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Reads source code</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Indexes the repo, not just docs</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>Limited to published docs pages</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Where it lives</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Widget, Slack, Discord, VS Code</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>A search bar on the docs site</div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Unknown answers</th>
+            <td class="col-beacon">
+              <div class="comp-row-cell"><span class="comp-icon yes">✓</span>Says so instead of guessing</div>
+            </td>
+            <td>
+              <div class="comp-row-cell"><span class="comp-icon no">–</span>Returns closest keyword match anyway</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="pricing reveal" id="pricing">
     <div class="section-head">
@@ -299,6 +382,41 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq reveal" id="faq">
+    <div class="section-head">
+      <div class="eyebrow">// FAQ</div>
+      <h2>Questions, answered</h2>
+      <p>Everything you'd ask before connecting a real repo.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Does Beacon see our proprietary code?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes — Beacon indexes whatever repo and docs folder you connect. Everything is encrypted per-tenant at rest and in transit, and it's never used to train any model. See the Security page for the full breakdown.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does setup actually take?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Most teams are answering real questions in the same session — connect a repo, point it at a docs folder, and indexing starts immediately. No export step, no implementation call.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens when we push new code?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">A push triggers re-indexing automatically, scoped to just the files that changed — not the whole repo — so answers stay current within minutes.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can we self-host Beacon?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Self-hosting is available on the Enterprise tier, alongside SSO and audit logs. Talk to us for details on deployment options.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if Beacon doesn't know the answer?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">It says so instead of guessing. Beacon only answers from a grounded, cited source — if it can't find one, it tells the developer rather than filling the gap.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer a free plan?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes — the Starter tier is free forever, with one assistant and 500 queries a month, no credit card required.</div>
+      </details>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="final-cta reveal">
     <div class="grid-bg"></div>
@@ -317,6 +435,8 @@
         <a href="#">Pricing</a>
         <a href="#">Status</a>
         <a href="#">Twitter</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
       </div>
       <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
     </div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — Beacon.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Page not found — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .nf-wrap{
+      min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:24px; position:relative; z-index:1;
+    }
+    .nf-code{
+      font-family:'JetBrains Mono', monospace; color:var(--cyan); font-size:14px;
+      letter-spacing:0.08em; margin-bottom:18px;
+    }
+    .nf-wrap h1{ font-size:clamp(2rem,6vw,3.2rem); font-weight:700; }
+    .nf-wrap p{ color:var(--muted); margin:16px 0 32px; max-width:420px; }
+  </style>
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <div class="nf-wrap">
+    <div class="nf-code">// 404 — NO GROUNDED SOURCE FOUND</div>
+    <h1>This page doesn't exist.</h1>
+    <p>Beacon couldn't find a cited source for this URL, so — for once — neither can we. Let's get you back on track.</p>
+    <a class="btn btn-shimmer" href="index.html">Back to home</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
