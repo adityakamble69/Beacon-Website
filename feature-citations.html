@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cited Answers — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#demo">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- FEATURE HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html#features">← All features</a>
+    <div class="feature-icon-badge">🔗</div>
+    <div class="eyebrow">// FEATURE — CITATIONS</div>
+    <h1>Every answer points back<br>to the line it came from.</h1>
+    <p class="sub">No confident-sounding guesses about your API. Every response links to the exact file, function,
+      or doc paragraph it was pulled from — so a dev can verify it in one click.</p>
+  </section>
+
+  <!-- FEATURE CONTENT -->
+  <section class="feature-content reveal">
+    <div class="text-col">
+      <h2>Answers with a paper trail</h2>
+      <p>Beacon doesn't generate an answer and hope it's right — it retrieves the relevant source first, then
+        writes the answer grounded in what it found. Each claim in the response carries a reference back to that
+        source, shown as a small numbered chip.</p>
+      <ul>
+        <li>Citations link to a specific file and line range, not just a repo or doc name</li>
+        <li>Hovering a citation previews the source inline, without leaving the chat</li>
+        <li>If Beacon can't find a grounded source, it says so instead of filling the gap</li>
+      </ul>
+
+      <h2>Why teams care</h2>
+      <p>Trust is the actual product here. A wrong answer with no source is a support ticket in disguise; a
+        right answer you can't verify still costs a Slack message to a teammate. Visible citations mean a
+        developer can confirm an answer themselves, in the time it takes to read the flagged snippet.</p>
+
+      <h2>Where it fits</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <strong>Auditing AI-assisted support</strong>
+          <span>Support leads spot-check flagged citations instead of re-verifying every answer from scratch.</span>
+        </div>
+        <div class="use-case">
+          <strong>Fast-moving APIs</strong>
+          <span>When an endpoint changes weekly, a citation shows a dev exactly which version of the code they're reading.</span>
+        </div>
+        <div class="use-case">
+          <strong>Compliance-sensitive teams</strong>
+          <span>Every answer is traceable to a source file, which matters when "where did this come from" is an audit question.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-col">
+      <div class="visual-panel">
+        <div class="visual-label">citation preview</div>
+        <div class="cite-answer">
+          Rate limits reset on a rolling 60-second window<span class="cite-chip">1</span>, and the
+          <code class="mono">/v1/query</code> endpoint caps out at 300 requests per key<span class="cite-chip">2</span>.
+        </div>
+        <div class="cite-source">
+          <span class="file-path">src/middleware/rate_limit.py</span>
+          <div><span class="ln">42</span>WINDOW_SECONDS = <span class="hl">60</span></div>
+          <div><span class="ln">43</span>MAX_REQUESTS = <span class="hl">300</span>  <span style="color:#4a4a60"># per api key</span></div>
+          <div><span class="ln">44</span>def check_limit(key: str) -&gt; bool:</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

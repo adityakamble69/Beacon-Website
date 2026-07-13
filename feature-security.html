@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOC 2 Ready — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#demo">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- FEATURE HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html#features">← All features</a>
+    <div class="feature-icon-badge">🔒</div>
+    <div class="eyebrow">// FEATURE — SECURITY</div>
+    <h1>Your code stays yours,<br>at every layer.</h1>
+    <p class="sub">Encrypted at rest and in transit, scoped by access control, and never used to train models —
+      the same repo you'd hand to a new hire under NDA, not a third party.</p>
+  </section>
+
+  <!-- FEATURE CONTENT -->
+  <section class="feature-content reveal">
+    <div class="text-col">
+      <h2>What's actually enforced</h2>
+      <p>Security claims on a landing page are easy to make and hard to verify, so Beacon's SOC 2 report and a
+        signed DPA are available on request before you connect a single repo — not just after a sales call.</p>
+      <ul>
+        <li>Source code and docs are encrypted at rest with per-tenant keys, and in transit via TLS 1.3</li>
+        <li>Access is scoped per repo and per seat, with SSO and audit logs on the Enterprise tier</li>
+        <li>Indexed content is never used to train or fine-tune any model, Beacon's or anyone else's</li>
+      </ul>
+
+      <h2>Why teams care</h2>
+      <p>Security review is usually the step that kills a dev-tool trial, not the product itself. Making the
+        posture legible up front — what's encrypted, who can see what, where the data does and doesn't go — turns
+        that review into a checklist instead of a blocker.</p>
+
+      <h2>Where it fits</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <strong>Regulated industries</strong>
+          <span>Fintech and healthtech teams get a SOC 2 report and DPA before repo access is even granted.</span>
+        </div>
+        <div class="use-case">
+          <strong>Enterprise procurement</strong>
+          <span>SSO and per-repo access scoping mean security review doesn't stall the rollout.</span>
+        </div>
+        <div class="use-case">
+          <strong>Open-source-adjacent teams</strong>
+          <span>Private forks and internal-only docs stay off any training set, by policy and by architecture.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-col">
+      <div class="visual-panel">
+        <div class="visual-label">security layers</div>
+        <div class="sec-layer">
+          <div class="sec-dot" style="background:#00D9C8;color:#00D9C8;"></div>
+          <div><strong>TLS 1.3 in transit</strong><span>Every request between your repo and Beacon is encrypted end to end</span></div>
+        </div>
+        <div class="sec-layer">
+          <div class="sec-dot" style="background:#7C5CFC;color:#7C5CFC;"></div>
+          <div><strong>Per-tenant encryption at rest</strong><span>Indexed code and embeddings use isolated keys per workspace</span></div>
+        </div>
+        <div class="sec-layer">
+          <div class="sec-dot" style="background:#FF6B4A;color:#FF6B4A;"></div>
+          <div><strong>Scoped access + SSO</strong><span>Repo access maps to seats, with audit logs on Enterprise</span></div>
+        </div>
+        <div class="sec-layer">
+          <div class="sec-dot" style="background:#00D9C8;color:#00D9C8;"></div>
+          <div><strong>Never used for training</strong><span>Your code doesn't become part of any model's weights</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

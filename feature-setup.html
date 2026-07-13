@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-Minute Setup — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#demo">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- FEATURE HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html#features">← All features</a>
+    <div class="feature-icon-badge">⚡</div>
+    <div class="eyebrow">// FEATURE — SETUP</div>
+    <h1>From zero to answering<br>questions in one sitting.</h1>
+    <p class="sub">Connect a GitHub repo and a docs folder — Beacon indexes both, builds its embeddings, and is
+      ready to answer real developer questions before the session ends.</p>
+  </section>
+
+  <!-- FEATURE CONTENT -->
+  <section class="feature-content reveal">
+    <div class="text-col">
+      <h2>What happens in those 5 minutes</h2>
+      <p>Most "AI on your docs" tools ask for a data export, a schema mapping, and a follow-up call. Beacon skips
+        all of it. You authorize a repo, point it at a docs folder, and indexing starts immediately — no staging
+        environment, no separate ingestion pipeline to babysit.</p>
+      <ul>
+        <li>Reads source files, markdown, and OpenAPI specs directly — no manual export step</li>
+        <li>Builds embeddings incrementally, so partial answers are available before indexing finishes</li>
+        <li>Re-indexes automatically on every push, scoped to just the changed files</li>
+      </ul>
+
+      <h2>Why teams care</h2>
+      <p>The setup step is usually where these tools lose momentum — a week of Slack threads with an
+        implementation engineer before anyone sees a real answer. Beacon is built so the first useful answer
+        happens in the same sitting as the signup, while the context for why you wanted this is still fresh.</p>
+
+      <h2>Where it fits</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <strong>New API launch</strong>
+          <span>Point Beacon at the SDK repo the same day it ships, so support tickets have an answer on day one.</span>
+        </div>
+        <div class="use-case">
+          <strong>Onboarding a new engineer</strong>
+          <span>Skip the "ask in #eng-help" phase — index the monorepo once and let new hires query it directly.</span>
+        </div>
+        <div class="use-case">
+          <strong>Docs migration</strong>
+          <span>Mid-migration docs are half-updated. Beacon reads the code itself, so answers don't wait on the docs team.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-col">
+      <div class="visual-panel">
+        <div class="visual-label">setup timeline</div>
+        <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;">
+          <line x1="30" y1="30" x2="30" y2="270" stroke="#26263A" stroke-width="2"/>
+          <line class="setup-progress-line" x1="30" y1="30" x2="30" y2="270" stroke="#00D9C8" stroke-width="2" stroke-dasharray="240" stroke-dashoffset="240"/>
+
+          <circle cx="30" cy="40" r="9" fill="#12121C" stroke="#00D9C8" stroke-width="2"/>
+          <text x="30" y="45" text-anchor="middle" font-size="11" fill="#00D9C8" font-family="JetBrains Mono, monospace">✓</text>
+          <text x="52" y="36" font-size="13" fill="#F5F4F8" font-family="Space Grotesk, sans-serif" font-weight="600">Connect repo</text>
+          <text x="52" y="54" font-size="11" fill="#9491A8" font-family="JetBrains Mono, monospace">0:00 — github.com/acme/sdk</text>
+
+          <circle cx="30" cy="145" r="9" fill="#12121C" stroke="#7C5CFC" stroke-width="2"/>
+          <text x="30" y="150" text-anchor="middle" font-size="11" fill="#7C5CFC" font-family="JetBrains Mono, monospace">✓</text>
+          <text x="52" y="141" font-size="13" fill="#F5F4F8" font-family="Space Grotesk, sans-serif" font-weight="600">Index files + docs</text>
+          <text x="52" y="159" font-size="11" fill="#9491A8" font-family="JetBrains Mono, monospace">1:42 — 1,204 files embedded</text>
+
+          <circle cx="30" cy="250" r="9" fill="#12121C" stroke="#FF6B4A" stroke-width="2"/>
+          <text x="30" y="255" text-anchor="middle" font-size="11" fill="#FF6B4A" font-family="JetBrains Mono, monospace">✓</text>
+          <text x="52" y="246" font-size="13" fill="#F5F4F8" font-family="Space Grotesk, sans-serif" font-weight="600">Ready to answer</text>
+          <text x="52" y="264" font-size="11" fill="#9491A8" font-family="JetBrains Mono, monospace">4:58 — widget live</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Accuracy Tracking — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#demo">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- FEATURE HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html#features">← All features</a>
+    <div class="feature-icon-badge">📊</div>
+    <div class="eyebrow">// FEATURE — ACCURACY</div>
+    <h1>Watch resolution rate move,<br>in real time.</h1>
+    <p class="sub">See which answers land and which get flagged as the questions come in — not in a monthly
+      export someone has to remember to pull.</p>
+  </section>
+
+  <!-- FEATURE CONTENT -->
+  <section class="feature-content reveal">
+    <div class="text-col">
+      <h2>What's on the dashboard</h2>
+      <p>Every answer Beacon gives is scored against whether the developer marked it helpful, followed up with
+        another question, or escalated to a human. That signal rolls up into a live resolution rate, broken down
+        by surface, repo, and time window.</p>
+      <ul>
+        <li>First-response resolution rate, updated as questions are asked</li>
+        <li>Flagged answers surfaced immediately, with the source they were grounded in</li>
+        <li>Breakdowns by channel — widget, Slack, VS Code — to see where answers land best</li>
+      </ul>
+
+      <h2>Why teams care</h2>
+      <p>An assistant that quietly gets worse as your codebase changes is worse than one that never launched,
+        because nobody notices until support tickets creep back up. A live number makes regressions visible the
+        same day a docs page goes stale, instead of at the next quarterly review.</p>
+
+      <h2>Where it fits</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <strong>Post-launch monitoring</strong>
+          <span>Watch resolution rate right after a big API change to catch answers that went stale.</span>
+        </div>
+        <div class="use-case">
+          <strong>Support team reporting</strong>
+          <span>Pull a live number into a weekly update instead of manually tallying flagged answers.</span>
+        </div>
+        <div class="use-case">
+          <strong>Docs quality signal</strong>
+          <span>A dip in one repo's resolution rate is often the first sign its docs need attention.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-col">
+      <div class="visual-panel">
+        <div class="visual-label">resolution rate — last 7 days</div>
+        <div class="acc-bignum">94.6%</div>
+        <div class="acc-sub">↑ 2.1pts vs. previous week</div>
+        <div class="acc-chart">
+          <div style="height:52%; animation-delay:0s;"></div>
+          <div style="height:61%; animation-delay:.15s;"></div>
+          <div style="height:58%; animation-delay:.3s;"></div>
+          <div style="height:73%; animation-delay:.05s;"></div>
+          <div style="height:80%; animation-delay:.25s;"></div>
+          <div style="height:88%; animation-delay:.1s;"></div>
+          <div style="height:94%; animation-delay:.2s;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

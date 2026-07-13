@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works Where Devs Already Are — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#demo">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- FEATURE HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html#features">← All features</a>
+    <div class="feature-icon-badge">🧩</div>
+    <div class="eyebrow">// FEATURE — INTEGRATIONS</div>
+    <h1>In-app widget, Slack,<br>Discord, VS Code — already there.</h1>
+    <p class="sub">Ship the surfaces your developers already have open. No custom glue to build, no separate
+      login to maintain.</p>
+  </section>
+
+  <!-- FEATURE CONTENT -->
+  <section class="feature-content reveal">
+    <div class="text-col">
+      <h2>One index, four surfaces</h2>
+      <p>Beacon indexes a repo once and serves that same index everywhere your developers ask questions. Turning
+        on a new surface is a toggle, not a new integration project — the widget, Slack app, Discord bot, and VS
+        Code extension all read from the same up-to-date index.</p>
+      <ul>
+        <li>Drop-in widget for your own docs site or product, themeable to match your brand</li>
+        <li>Slack and Discord apps that answer inline in the channel a question was asked in</li>
+        <li>A VS Code extension so a question never has to leave the editor</li>
+      </ul>
+
+      <h2>Why teams care</h2>
+      <p>Most teams' actual constraint isn't "would an AI assistant help" — it's "can we get developers to use
+        it." Landing in a tool that's already open removes that adoption tax entirely; there's no new tab to
+        remember to check.</p>
+
+      <h2>Where it fits</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <strong>Public API docs</strong>
+          <span>Embed the widget directly on your docs site so a question gets answered without a support ticket.</span>
+        </div>
+        <div class="use-case">
+          <strong>Internal platform teams</strong>
+          <span>Answer "how do I use our internal SDK" questions right in the Slack channel they're already asked in.</span>
+        </div>
+        <div class="use-case">
+          <strong>Editor-first workflows</strong>
+          <span>The VS Code extension keeps a developer in flow instead of context-switching to a browser tab.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-col">
+      <div class="visual-panel int-stage">
+        <div class="visual-label">one index, four surfaces</div>
+        <svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
+          <rect class="node-box center" x="10" y="128" width="110" height="52" rx="10" />
+          <text class="node-label" x="30" y="159" style="fill:#F5F4F8; font-weight:600;">Beacon</text>
+
+          <rect class="node-box" x="210" y="10" width="120" height="40" rx="8" />
+          <text class="node-label" x="226" y="34">in-app widget</text>
+          <rect class="node-box" x="210" y="90" width="120" height="40" rx="8" />
+          <text class="node-label" x="255" y="114">slack</text>
+          <rect class="node-box" x="210" y="170" width="120" height="40" rx="8" />
+          <text class="node-label" x="252" y="194">discord</text>
+          <rect class="node-box" x="210" y="250" width="120" height="40" rx="8" />
+          <text class="node-label" x="228" y="274">vs code ext</text>
+
+          <path class="beam-path" d="M120,140 C165,140 165,30 210,30" stroke="#26263A" />
+          <path class="beam-path" d="M120,148 C165,148 165,110 210,110" stroke="#26263A" />
+          <path class="beam-path" d="M120,158 C165,158 165,190 210,190" stroke="#26263A" />
+          <path class="beam-path" d="M120,166 C165,166 165,270 210,270" stroke="#26263A" />
+
+          <circle class="beam-dot" r="3.5" fill="#00D9C8">
+            <animateMotion dur="2.2s" repeatCount="indefinite" path="M120,140 C165,140 165,30 210,30" />
+          </circle>
+          <circle class="beam-dot" r="3.5" fill="#7C5CFC">
+            <animateMotion dur="2.4s" begin="0.3s" repeatCount="indefinite" path="M120,148 C165,148 165,110 210,110" />
+          </circle>
+          <circle class="beam-dot" r="3.5" fill="#FF6B4A">
+            <animateMotion dur="2.1s" begin="0.6s" repeatCount="indefinite" path="M120,158 C165,158 165,190 210,190" />
+          </circle>
+          <circle class="beam-dot" r="3.5" fill="#00D9C8">
+            <animateMotion dur="2.5s" begin="0.9s" repeatCount="indefinite" path="M120,166 C165,166 165,270 210,270" />
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
