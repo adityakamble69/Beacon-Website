@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circuit — Wire your AI stack together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="crosshair-line v" id="lineV"></div>
+<div class="crosshair-line h" id="lineH"></div>
+<div class="crosshair-center" id="crossCenter"></div>
+<div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo"><div class="logo-mark"></div>Circuit</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+      <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="particles-canvas" id="particles"></canvas>
+  <div class="badge"><span class="dot"></span> Introducing Circuit v2.0 — now with parallel routing</div>
+  <h1>Wire your AI stack<br><span class="gradient-text">together, in minutes.</span></h1>
+  <p class="sub">Circuit connects every model, API, and data source you use into one visual pipeline — no glue code, no babysitting webhooks.</p>
+  <div class="hero-cta">
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+    <a class="btn btn-ghost" href="#demo">Watch it run →</a>
+  </div>
+
+  <div class="beam-stage">
+    <svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- input nodes -->
+      <g>
+        <rect class="node-box" x="20" y="30" width="140" height="44" rx="8"/>
+        <text class="node-label" x="38" y="56">gpt-4.1 / api</text>
+        <rect class="node-box" x="20" y="108" width="140" height="44" rx="8"/>
+        <text class="node-label" x="38" y="134">postgres / db</text>
+        <rect class="node-box" x="20" y="186" width="140" height="44" rx="8"/>
+        <text class="node-label" x="38" y="212">stripe / webhook</text>
+      </g>
+      <!-- center node -->
+      <rect class="node-box center" x="390" y="98" width="140" height="64" rx="10"/>
+      <text class="node-label" x="425" y="135" style="fill:#F5F4F8; font-weight:600;">Circuit</text>
+      <!-- output nodes -->
+      <g>
+        <rect class="node-box" x="760" y="40" width="140" height="44" rx="8"/>
+        <text class="node-label" x="785" y="66">slack alert</text>
+        <rect class="node-box" x="760" y="108" width="140" height="44" rx="8"/>
+        <text class="node-label" x="790" y="134">dashboard</text>
+        <rect class="node-box" x="760" y="176" width="140" height="44" rx="8"/>
+        <text class="node-label" x="795" y="202">email</text>
+      </g>
+
+      <!-- beams: input to center -->
+      <path class="beam-path" d="M160,52 C280,52 280,130 390,130" stroke="#26263A"/>
+      <path class="beam-path" d="M160,130 C280,130 280,130 390,130" stroke="#26263A"/>
+      <path class="beam-path" d="M160,208 C280,208 280,130 390,130" stroke="#26263A"/>
+      <!-- beams: center to output -->
+      <path class="beam-path" d="M530,130 C650,130 650,62 760,62" stroke="#26263A"/>
+      <path class="beam-path" d="M530,130 C650,130 650,130 760,130" stroke="#26263A"/>
+      <path class="beam-path" d="M530,130 C650,130 650,198 760,198" stroke="#26263A"/>
+
+      <!-- animated dots along beams -->
+      <circle class="beam-dot" r="3.5" fill="#00D9C8">
+        <animateMotion dur="2.4s" repeatCount="indefinite" path="M160,52 C280,52 280,130 390,130"/>
+      </circle>
+      <circle class="beam-dot" r="3.5" fill="#7C5CFC">
+        <animateMotion dur="2.1s" begin="0.4s" repeatCount="indefinite" path="M160,130 C280,130 280,130 390,130"/>
+      </circle>
+      <circle class="beam-dot" r="3.5" fill="#00D9C8">
+        <animateMotion dur="2.6s" begin="0.8s" repeatCount="indefinite" path="M160,208 C280,208 280,130 390,130"/>
+      </circle>
+      <circle class="beam-dot" r="3.5" fill="#FF6B4A">
+        <animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" path="M530,130 C650,130 650,62 760,62"/>
+      </circle>
+      <circle class="beam-dot" r="3.5" fill="#7C5CFC">
+        <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M530,130 C650,130 650,130 760,130"/>
+      </circle>
+      <circle class="beam-dot" r="3.5" fill="#00D9C8">
+        <animateMotion dur="2.5s" begin="1s" repeatCount="indefinite" path="M530,130 C650,130 650,198 760,198"/>
+      </circle>
+    </svg>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos-section">
+  <div class="logos-label">Trusted by teams shipping AI in production</div>
+  <div class="marquee">
+    <div class="marquee-track" id="marquee1">
+      <span>Northwind</span><span>Ledgerly</span><span>Alto Labs</span><span>Ferra</span><span>Basecamp AI</span><span>Vantage</span><span>Kinetic</span><span>Northwind</span><span>Ledgerly</span><span>Alto Labs</span><span>Ferra</span><span>Basecamp AI</span><span>Vantage</span><span>Kinetic</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-head">
+    <div class="eyebrow">// FEATURES</div>
+    <h2>Everything a pipeline needs</h2>
+    <p>Drop in a model, a database, a webhook — Circuit routes the data and handles retries, so you don't have to.</p>
+  </div>
+  <div class="bento">
+    <div class="bento-card b1">
+      <div class="icon">⚡</div>
+      <h3>Visual pipeline builder</h3>
+      <p>Drag nodes, draw connections, watch data move in real time. No YAML required.</p>
+    </div>
+    <div class="bento-card b3">
+      <div class="icon">🔁</div>
+      <h3>Auto retries</h3>
+      <p>Failed calls recover themselves with exponential backoff.</p>
+    </div>
+    <div class="bento-card b4">
+      <div class="icon">🔒</div>
+      <h3>SOC 2 ready</h3>
+      <p>Secrets encrypted at rest, audit logs included.</p>
+    </div>
+    <div class="bento-card b5">
+      <div class="icon">📊</div>
+      <h3>Live cost tracking</h3>
+      <p>See token spend per node, per model, updated as requests complete.</p>
+      <div class="mini-chart">
+        <div style="height:40%; animation-delay:0s;"></div>
+        <div style="height:70%; animation-delay:.2s;"></div>
+        <div style="height:55%; animation-delay:.4s;"></div>
+        <div style="height:90%; animation-delay:.1s;"></div>
+        <div style="height:60%; animation-delay:.3s;"></div>
+      </div>
+    </div>
+    <div class="bento-card b2">
+      <div class="icon">🧩</div>
+      <h3>120+ integrations</h3>
+      <p>OpenAI, Anthropic, Postgres, Stripe, Slack, and everything in between — pre-built.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <div class="section-head">
+    <div class="eyebrow">// LIVE DEMO</div>
+    <h2>Define a pipeline in one file</h2>
+  </div>
+  <div class="terminal">
+    <div class="terminal-top"><span></span><span></span><span></span></div>
+    <div class="terminal-body" id="typing"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num" data-target="12400">0</div>
+      <div class="stat-label">Pipelines running</div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="48" data-suffix="M">0</div>
+      <div class="stat-label">Requests routed / month</div>
+    </div>
+    <div>
+      <div class="stat-num" data-target="99.98" data-decimal="true" data-suffix="%">0</div>
+      <div class="stat-label">Uptime, last 90 days</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="section-head">
+    <div class="eyebrow">// FROM THE TEAMS USING IT</div>
+    <h2>Fewer 2am pages</h2>
+  </div>
+  <div class="marquee">
+    <div class="testi-track">
+      <div class="testi-card"><p>"We replaced 600 lines of glue code with one Circuit pipeline. Retries alone paid for the plan."</p><div class="testi-author"><div class="avatar"></div><div><div class="testi-name">Priya Nair</div><div class="testi-role">Eng Lead, Ledgerly</div></div></div></div>
+      <div class="testi-card"><p>"The cost view caught a runaway loop calling GPT-4 every second. Saved us a very bad invoice."</p><div class="testi-author"><div class="avatar"></div><div><div class="testi-name">Marco Tullio</div><div class="testi-role">CTO, Ferra</div></div></div></div>
+      <div class="testi-card"><p>"Onboarding a new model used to take a sprint. Now it's a node and a connection."</p><div class="testi-author"><div class="avatar"></div><div><div class="testi-name">Dana Yusuf</div><div class="testi-role">ML Platform, Vantage</div></div></div></div>
+      <div class="testi-card"><p>"We replaced 600 lines of glue code with one Circuit pipeline. Retries alone paid for the plan."</p><div class="testi-author"><div class="avatar"></div><div><div class="testi-name">Priya Nair</div><div class="testi-role">Eng Lead, Ledgerly</div></div></div></div>
+      <div class="testi-card"><p>"The cost view caught a runaway loop calling GPT-4 every second. Saved us a very bad invoice."</p><div class="testi-author"><div class="avatar"></div><div><div class="testi-name">Marco Tullio</div><div class="testi-role">CTO, Ferra</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-head">
+    <div class="eyebrow">// PRICING</div>
+    <h2>Start free, scale when it works</h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amt">$0<span>/mo</span></div>
+      <ul class="price-feat">
+        <li>3 pipelines</li>
+        <li>10k requests/mo</li>
+        <li>Community support</li>
+      </ul>
+      <a class="btn btn-ghost">Get started</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-tier">Pro</div>
+      <div class="price-amt">$49<span>/mo</span></div>
+      <ul class="price-feat">
+        <li>Unlimited pipelines</li>
+        <li>2M requests/mo</li>
+        <li>Cost tracking + alerts</li>
+        <li>Priority support</li>
+      </ul>
+      <a class="btn btn-shimmer">Start free trial</a>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Enterprise</div>
+      <div class="price-amt">Custom</div>
+      <ul class="price-feat">
+        <li>SOC 2 + SSO</li>
+        <li>Dedicated infra</li>
+        <li>Onboarding support</li>
+      </ul>
+      <a class="btn btn-ghost">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="grid-bg"></div>
+  <h2>Your next pipeline takes<br><span class="gradient-text">five minutes, not five days.</span></h2>
+  <p>No credit card. No sales call. Just wire it up.</p>
+  <a class="btn btn-shimmer" href="#">Start building free</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo"><div class="logo-mark"></div>Circuit</div>
+    <div class="footer-links">
+      <a href="#">Docs</a>
+      <a href="#">Pricing</a>
+      <a href="#">Status</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div style="font-size:13px; color:var(--muted);">© 2026 Circuit Labs</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
