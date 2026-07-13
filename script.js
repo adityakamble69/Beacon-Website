@@ -57,12 +57,12 @@
   // typing terminal
   const typingEl = document.getElementById('typing');
   const lines = [
-    {t:'prompt', text:'$ circuit init support-triage'},
-    {t:'out', text:'✓ pipeline scaffolded in ./support-triage'},
-    {t:'prompt', text:'$ circuit connect gpt-4.1 → postgres → slack'},
-    {t:'out', text:'✓ 3 nodes wired · retries: on · cost cap: $50/day'},
-    {t:'prompt', text:'$ circuit run --watch'},
-    {t:'out', text:'→ listening for events...'},
+    {t:'prompt', text:'$ beacon init'},
+    {t:'out', text:'✓ project scaffolded in ./beacon'},
+    {t:'prompt', text:'$ beacon connect --repo github.com/acme/sdk --docs ./docs'},
+    {t:'out', text:'✓ indexed 1,204 files · docs synced · ready'},
+    {t:'prompt', text:'$ beacon deploy --widget'},
+    {t:'out', text:'→ live at acme.com — ask it anything'},
   ];
   let li=0, ci=0;
   function typeLine(){
