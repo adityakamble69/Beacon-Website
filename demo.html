@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo — Beacon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <canvas class="particles-canvas" id="particles"></canvas>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="crosshair-line v" id="lineV"></div>
+  <div class="crosshair-line h" id="lineH"></div>
+  <div class="crosshair-center" id="crossCenter"></div>
+  <div class="coord-label" id="coordLabel">X: 0 Y: 0</div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+        <a class="btn btn-shimmer btn-sm" href="#">Get started</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features">Features</a>
+    <a href="demo.html">Demo</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn btn-shimmer btn-sm" href="#" style="margin-top:12px;">Get started</a>
+  </div>
+
+  <!-- DEMO HERO -->
+  <section class="feature-hero">
+    <a class="feature-back" href="index.html">← Back home</a>
+    <div class="feature-icon-badge">💬</div>
+    <div class="eyebrow">// LIVE DEMO</div>
+    <h1>Connect a repo,<br>then ask it anything.</h1>
+    <p class="sub">Setup on the left. On the right, the same assistant your developers would talk to — try a
+      question below, or type your own.</p>
+  </section>
+
+  <!-- DEMO -->
+  <section class="demo-section reveal" id="demo">
+    <div class="demo-grid">
+      <div class="terminal">
+        <div class="terminal-top"><span></span><span></span><span></span></div>
+        <div class="terminal-body" id="typing"></div>
+      </div>
+
+      <div class="chat-widget">
+        <div class="chat-header">
+          <div class="chat-avatar"></div>
+          <div>
+            <div class="chat-title">Beacon</div>
+            <div class="chat-sub"><span class="chat-dot"></span>connected to github.com/acme/sdk</div>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-bubble bot">Ask me about this repo — try one below, or type your own question.</div>
+        </div>
+
+        <div class="chat-source-panel" id="chatSourcePanel"></div>
+
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button type="button" class="chat-chip" data-q="What's the rate limit on the API?">What's the rate limit?</button>
+          <button type="button" class="chat-chip" data-q="How do I authenticate requests?">How do I authenticate?</button>
+          <button type="button" class="chat-chip" data-q="How often does Beacon re-index the repo?">Re-index frequency?</button>
+        </div>
+
+        <form class="chat-input-row" id="chatForm">
+          <input class="chat-input" id="chatInput" type="text" placeholder="Ask a question…" autocomplete="off" maxlength="140">
+          <button class="chat-send" type="submit" aria-label="Send">→</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal">
+    <div class="grid-bg"></div>
+    <h2>Your docs stop going<br><span class="gradient-text">out of date, today.</span></h2>
+    <p>No credit card. No sales call. Point it at a repo and go.</p>
+    <a class="btn btn-shimmer" href="#">Start building free</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>Beacon
+      </div>
+      <div class="footer-links">
+        <a href="#">Docs</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#">Status</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div style="font-size:13px; color:var(--muted);">© 2026 Beacon Labs</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

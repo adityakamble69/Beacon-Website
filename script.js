@@ -196,6 +196,133 @@
     setTimeout(typeLine, 500);
   }
 
+  // interactive chat demo widget (right side of the #demo section)
+  (function(){
+    const form = document.getElementById('chatForm');
+    if(!form) return;
+
+    const input = document.getElementById('chatInput');
+    const messagesEl = document.getElementById('chatMessages');
+    const sourcePanel = document.getElementById('chatSourcePanel');
+    const chips = document.querySelectorAll('.chat-chip');
+
+    const QA = [
+      {
+        keywords: ['rate limit', '429', 'requests per', 'how many requests', 'throttle'],
+        answer: 'Rate limits reset on a rolling 60-second window<span class="chat-cite-chip">1</span>, and the <code class="mono">/v1/query</code> endpoint caps out at 300 requests per key<span class="chat-cite-chip">2</span>.',
+        source: {
+          file: 'src/middleware/rate_limit.py',
+          lines: [
+            { n: 42, html: 'WINDOW_SECONDS = <span class="hl">60</span>' },
+            { n: 43, html: 'MAX_REQUESTS = <span class="hl">300</span>&nbsp;&nbsp;<span style="color:#4a4a60"># per api key</span>' }
+          ]
+        }
+      },
+      {
+        keywords: ['auth', 'token', 'bearer', 'authenticate', 'login', 'api key header'],
+        answer: 'Every request needs a bearer token in the <code class="mono">Authorization</code> header<span class="chat-cite-chip">1</span>, and each token is scoped to a single workspace<span class="chat-cite-chip">2</span>.',
+        source: {
+          file: 'src/auth/verify_token.py',
+          lines: [
+            { n: 18, html: 'token = header.replace(<span class="hl">"Bearer "</span>, "")' },
+            { n: 27, html: 'workspace_id = token.claims[<span class="hl">"workspace"</span>]' }
+          ]
+        }
+      },
+      {
+        keywords: ['reindex', 're-index', 'sync', 'how often', 'update', 'stale', 'out of date'],
+        answer: 'A push triggers re-indexing automatically<span class="chat-cite-chip">1</span>, scoped to just the files that changed in that push<span class="chat-cite-chip">2</span> — not the whole repo.',
+        source: {
+          file: 'indexer/watch.py',
+          lines: [
+            { n: 11, html: '<span class="hl">@on_event</span>("push")' },
+            { n: 13, html: 'reindex(files=<span class="hl">diff.changed_files</span>)' }
+          ]
+        }
+      }
+    ];
+
+    function findMatch(question){
+      const q = question.toLowerCase();
+      return QA.find(item => item.keywords.some(k => q.includes(k)));
+    }
+
+    function scrollToBottom(){
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function addUserBubble(text){
+      const el = document.createElement('div');
+      el.className = 'chat-bubble user';
+      el.textContent = text;
+      messagesEl.appendChild(el);
+      scrollToBottom();
+    }
+
+    function addTypingBubble(){
+      const el = document.createElement('div');
+      el.className = 'chat-bubble bot';
+      el.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+      messagesEl.appendChild(el);
+      scrollToBottom();
+      return el;
+    }
+
+    function renderSource(source){
+      if(!source){
+        sourcePanel.classList.remove('open');
+        return;
+      }
+      let html = `<span class="file-path">${source.file}</span>`;
+      source.lines.forEach(l => {
+        html += `<div><span class="ln">${l.n}</span>${l.html}</div>`;
+      });
+      sourcePanel.innerHTML = html;
+      sourcePanel.classList.add('open');
+    }
+
+    function ask(question){
+      if(!question || !question.trim()) return;
+      addUserBubble(question.trim());
+      sourcePanel.classList.remove('open');
+      const typingBubble = addTypingBubble();
+
+      const match = findMatch(question);
+      setTimeout(() => {
+        typingBubble.remove();
+        const el = document.createElement('div');
+        if(match){
+          el.className = 'chat-bubble bot';
+          el.innerHTML = match.answer;
+        } else {
+          el.className = 'chat-bubble bot fallback';
+          el.textContent = "I can't find a grounded source for that in this demo repo, so I won't guess — point me at a real one and I'll check before answering.";
+        }
+        messagesEl.appendChild(el);
+        scrollToBottom();
+        renderSource(match ? match.source : null);
+      }, 650 + Math.random() * 450);
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => ask(chip.dataset.q));
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value;
+      input.value = '';
+      ask(val);
+    });
+
+    // citation chips are added dynamically, so use event delegation
+    messagesEl.addEventListener('click', (e) => {
+      if(e.target.classList.contains('chat-cite-chip')){
+        sourcePanel.classList.toggle('open');
+      }
+    });
+  })();
+
   // number ticker on scroll into view
   const nums = document.querySelectorAll('.stat-num');
   const obs = new IntersectionObserver((entries)=>{
